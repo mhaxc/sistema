@@ -16,8 +16,9 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-Route::resource('/dentistas', 'DentistaController');
+Route::get('dentistas','DentistaController@index');
+Route::post('dentistas/create', 'DentistaController@create');
+Route::post('dentistas/store', 'DentistaController@store');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

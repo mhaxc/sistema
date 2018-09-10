@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dentista extends Model
 {
-
+ protected $fillable =[
+   'nome','telefone','email','senha'
+ ];
 }

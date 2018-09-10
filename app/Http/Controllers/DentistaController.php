@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Dentista;
 use Illuminate\Http\Request;
+use Redirect;
 
 class DentistaController extends Controller
 {
@@ -14,7 +15,8 @@ class DentistaController extends Controller
      */
     public function index()
     {
-        return view ('dentista.dentista');
+
+        return view ('dentista.index');
     }
 
     /**
@@ -24,7 +26,7 @@ class DentistaController extends Controller
      */
     public function create()
     {
-        //
+        return view ('dentista.create');
     }
 
     /**
@@ -35,7 +37,20 @@ class DentistaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $dentista = new Dentista();
+
+        $dentista = $dentista->create($request->all());
+
+        \Session::flash('mensagem_sucesso','Cadastrado com Sucesso');
+
+
+        return  Redirect::to('dentistas/create');
+
+
+
+
+
     }
 
     /**
